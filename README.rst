@@ -1,6 +1,15 @@
 sprockets.clients.redis
 =======================
-Base functionality for accessing/modifying data in Redis
+Base functionality for accessing/modifying data in Redis.  Currently
+there is only support for interacting with Redis servers in a sharded
+manner.
+
+That is to say, there are multiple Redis servers we are distributing reads
+and writes among them based on a consistent hash of the key value we're
+operating on.  This is also known as "Client Side Partitioning".
+
+More information about setting up or managing Redis in this manner
+can be found on the Redis documentation website: http://redis.io/topics/partitioning
 
 |Version| |Downloads| |Status| |Coverage| |License|
 
@@ -24,12 +33,21 @@ Requirements
 
 Example
 -------
-This examples demonstrates how to use ``sprockets.clients.redis`` by ...
+This examples demonstrates how to use a sharded Redis connection
+in ``sprockets.clients.redis`` by ...
 .. code:: python
 
+    import os
     from sprockets import clients.redis
 
-    # Example here
+    os.environ['REDIS_URI'] = 'redis://localhost/'
+
+    shard = clients.redis.ShardedRedisConnection()
+
+    shard.set('foo', 1)
+    value = shard.get('foo')
+    shard.delete('foo')
+
 
 Version History
 ---------------
