@@ -22,10 +22,6 @@ install_requires = read_requirements_file('requirements.txt')
 setup_requires = read_requirements_file('setup-requirements.txt')
 tests_require = read_requirements_file('test-requirements.txt')
 
-if sys.version_info < (2, 7):
-    tests_require.append('unittest2')
-if sys.version_info < (3, 0):
-    tests_require.append('mock')
 
 setuptools.setup(
     name='sprockets.clients.redis',
@@ -43,7 +39,6 @@ setuptools.setup(
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.2',
