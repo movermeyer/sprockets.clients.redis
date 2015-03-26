@@ -23,3 +23,5 @@ deploy:
   user: sprockets
   password:
     secure: [REPLACE-ME]
+services:
+  - redis-server
