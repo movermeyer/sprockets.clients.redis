@@ -4,7 +4,11 @@ The following example ...
 
 .. code:: python
 
-    from sprockets import clients.redis
+    import os
+    os.environ['REDIS_URI'] = 'redis://localhost/'
 
-    class Foo(object):
-        pass
+    shard = ShardedRedisConnection()
+
+    shard.set('foo', 1)
+    value = shard.get('foo')
+    shard.delete('foo')
