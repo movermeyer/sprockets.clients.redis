@@ -112,4 +112,4 @@ Indices and tables
    :target: https://pypi.python.org/pypi/sprockets.clients.redis
 
 .. |License| image:: https://pypip.in/license/sprockets.clients.redis/badge.svg?
-   :target: https://sprocketsclientsredis.readthedocs.org
+   :target: http://sprockets-clients-redis.readthedocs.org/en/latest/
