@@ -25,7 +25,7 @@ and can be installed via ``pip`` or ``easy_install``:
 
 Documentation
 -------------
-https://sprocketsclientsredis.readthedocs.org
+http://sprockets-clients-redis.readthedocs.org/en/latest/
 
 Requirements
 ------------
@@ -52,7 +52,7 @@ in ``sprockets.clients.redis`` by ...
 
 Version History
 ---------------
-Available at https://sprocketsclientsredis.readthedocs.org/en/latest/history.html
+Available at http://sprockets-clients-redis.readthedocs.org/en/latest/history.html
 
 .. |Version| image:: https://badge.fury.io/py/sprockets.clients.redis.svg?
    :target: http://badge.fury.io/py/sprockets.clients.redis
@@ -67,4 +67,4 @@ Available at https://sprocketsclientsredis.readthedocs.org/en/latest/history.htm
    :target: https://pypi.python.org/pypi/sprockets.clients.redis
 
 .. |License| image:: https://pypip.in/license/sprockets.clients.redis/badge.svg?
-   :target: https://sprocketsclientsredis.readthedocs.org
+   :target: http://sprockets-clients-redis.readthedocs.org/en/latest/
