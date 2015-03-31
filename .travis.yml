@@ -4,9 +4,9 @@ language: python
 python:
   - 2.7
   - pypy
-  - 3.2
-  - 3.3
-  - 3.4
+  # - 3.2 # Depends on consistent_hash supporting python 3 https://github.com/yummybian/consistent-hash/issues/8
+  # - 3.3
+  # - 3.4
 install:
   - pip install -r test-requirements.txt
   - pip install -e .
