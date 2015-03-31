@@ -22,6 +22,6 @@ deploy:
     all_branches: true
   user: sprockets
   password:
-    secure: [REPLACE-ME]
+    secure: "UFxlqmRDVHsXOlKedFtVwJEBu4qqu1/l3DFvgLnysqyLUQd6VhvIV4YaXGJiHFCFc5wPn0TKy+SvAwoM8Ecni0jpd0DdKcB74HZoOPongZN6c4kdOstkBsTbi28+5hsaFIzQqf5uJI+lcpxsQ5DT4e+7rzYi3XR/WQ08x8DVEjQ="
 services:
   - redis-server
