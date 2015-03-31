@@ -16,8 +16,50 @@ and can be installed via ``pip`` or ``easy_install``:
 
 Requirements
 ------------
-@TODO: Put full requirements list here, should match requirements.txt
--  `sprockets <https://github.com/sprockets/sprockets>`_
+
+* ``consistent_hash==1.0``
+* ``hiredis==0.1.6``
+* ``redis==2.10.3``
+
+Simple Example
+--------------
+
+Simple CRUD operations on a key.
+
+.. code:: python
+
+    >>> import os
+    >>> os.environ['REDIS_URI'] = 'redis://localhost/'
+
+    >>> shard = ShardedRedisConnection()
+    <sprockets.clients.redis.ShardedRedisConnection at 0x1046f2c90>
+
+    >>> shard.set('foo', 1)
+    >>> shard.get('foo')
+    '1'
+    >>> shard.delete('foo')
+    >>> value = shard.get('foo')
+    >>> value is None
+    True
+
+Setting a TTL on your key.
+
+.. code:: python
+
+    >>> import os
+    >>> import time
+    >>> os.environ['REDIS_URI'] = 'redis://localhost/'
+
+    >>> shard = ShardedRedisConnection()
+    <sprockets.clients.redis.ShardedRedisConnection at 0x1046f2c90>
+
+    >>> shard.set('bar', 1, ttl=2)
+    >>> shard.get('bar')
+    '1'
+    >>> time.sleep(2)
+    >>> value = shard.get('foo')
+    >>> value is None
+    True
 
 API Documentation
 -----------------
@@ -25,11 +67,17 @@ API Documentation
    :maxdepth: 2
 
    api
-   examples
+   history
+   contributing
 
 Version History
 ---------------
 See :doc:`history`
+
+Contributing
+------------
+Issues and Pull Requests are always welcome.  For more information on how to contribute
+please refer to :doc:`contributing`.
 
 Issues
 ------

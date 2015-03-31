@@ -29,12 +29,13 @@ https://sprocketsclientsredis.readthedocs.org
 
 Requirements
 ------------
--  `sprockets <https://github.com/sprockets/sprockets>`_
+.. include:: requirements.txt
 
 Example
 -------
 This examples demonstrates how to use a sharded Redis connection
 in ``sprockets.clients.redis`` by ...
+
 .. code:: python
 
     import os
