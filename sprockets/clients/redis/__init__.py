@@ -106,7 +106,7 @@ class ShardedRedisConnection(object):
 
     def set(self, key, value, ttl=None):
         """Set ``key`` to ``value`` in a Redis shard."""
-        LOGGER.debug('Setting Redis key "%s" to "%s"', key, value)
+        LOGGER.debug('Setting Redis key "%s"', key)
         ttl = ttl or self.config.ttl
         connection = self._get_shard_connection(key)
         connection.set(key, value, ex=ttl)
