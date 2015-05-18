@@ -43,6 +43,14 @@ class TestShardedRedisConnectionClass(unittest.TestCase):
         time.sleep(2)
         self.assertIsNone(self.conn.get(self.key))
 
+    def test_adding_to_set_at_a_key(self):
+        self.conn.sadd(self.key, self.value)
+        self.assertEqual(self.conn.smembers(self.key), set([self.value]))
+
+    def test_checking_membership_of_value_at_key(self):
+        self.conn.sadd(self.key, self.value)
+        self.assertTrue(self.conn.sismember(self.key, self.value))
+
     def test_getting_health_info(self):
         self.assertIsNotNone(self.conn.info())
 
