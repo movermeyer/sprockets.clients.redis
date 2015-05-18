@@ -12,13 +12,12 @@ script: nosetests
 after_success:
   - coveralls
 deploy:
-  distributions: sdist bdist_wheel
+  user: sprockets
   provider: pypi
   on:
     python: 2.7
     tags: true
     all_branches: true
-  user: sprockets
   password:
     secure: "UFxlqmRDVHsXOlKedFtVwJEBu4qqu1/l3DFvgLnysqyLUQd6VhvIV4YaXGJiHFCFc5wPn0TKy+SvAwoM8Ecni0jpd0DdKcB74HZoOPongZN6c4kdOstkBsTbi28+5hsaFIzQqf5uJI+lcpxsQ5DT4e+7rzYi3XR/WQ08x8DVEjQ="
 services:
