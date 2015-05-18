@@ -123,6 +123,24 @@ class ShardedRedisConnection(object):
         connection = self._get_shard_connection(key)
         connection.delete(key)
 
+    def sadd(self, key, *values):
+        """Add the specified ``values`` to the set stored at ``key``."""
+        LOGGER.debug('Getting Redis key "%s" set members', key)
+        connection = self._get_shard_connection(key)
+        return connection.sadd(key, *values)
+
+    def smembers(self, key):
+        """Return all members of the set stored at ``key``."""
+        LOGGER.debug('Getting Redis key "%s" set members', key)
+        connection = self._get_shard_connection(key)
+        return connection.smembers(key)
+
+    def sismember(self, key, member):
+        """Returns if ``member`` is a member of the set stored at ``key``."""
+        LOGGER.debug('Checkin for membership at Redis key "%s"', key)
+        connection = self._get_shard_connection(key)
+        return connection.sismember(key, member)
+
     def info(self):
         """Return a list of the health of each connected redis server.
 
