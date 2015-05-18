@@ -25,7 +25,7 @@ tests_require = read_requirements_file('test-requirements.txt')
 
 setuptools.setup(
     name='sprockets.clients.redis',
-    version='1.0.1',
+    version='1.2.0',
     description='Base functionality for accessing/modifying data in Redis',
     long_description=codecs.open('README.rst', encoding='utf-8').read(),
     url='https://github.com/sprockets/sprockets.clients.redis.git',
