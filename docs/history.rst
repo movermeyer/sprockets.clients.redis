@@ -6,6 +6,11 @@ Release History
 Next Release
 ------------
 
+`1.2.0`_ (2015-05-18)
+---------------------
+
+* Add a RedisConnection that is not sharded.
+
 `1.1.0`_ (2015-05-18)
 ---------------------
 
