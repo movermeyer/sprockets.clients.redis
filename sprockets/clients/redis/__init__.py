@@ -158,7 +158,7 @@ class ShardedRedisConnection(object):
         return stats
 
 
-class RedisConnection(object):
+class RedisConnection(redis.StrictRedis):
     """Maintain a Redis connection.
 
     This class establishes a redis connection based off of the IP address
@@ -173,10 +173,7 @@ class RedisConnection(object):
     """
 
     def __init__(self):
-        """Construct a Redis connection from the URI env-var."""
-        LOGGER.debug(
-            'Creating connection info for "%s"', os.environ['REDIS_URI'])
-
+        LOGGER.debug('Establishing Redis connection pool')
         broken = urlsplit(os.environ['REDIS_URI'])
 
         if broken.scheme != 'redis':
@@ -187,12 +184,6 @@ class RedisConnection(object):
         if not ip_addresses:
             raise RuntimeError('Unable to find Redis in DNS!')
 
-        self.host = ip_addresses[0]
-        self.port = broken.port or DEFAULT_PORT
-        self.db = broken.path[1:]  # Remove the leading /
-
-        self.connection = redis.StrictRedis(
-            host=self.host,
-            port=self.port,
-            db=self.db,
-        )
+        super(RedisConnection, self).__init__(host=ip_addresses[0],
+                                              port=broken.port or DEFAULT_PORT,
+                                              db=broken.path[1:])
