@@ -78,8 +78,7 @@ class TestRedisConnectionClass(unittest.TestCase):
         super(TestRedisConnectionClass, cls).setUpClass()
         cls._old_environ = os.environ.get('REDIS_URI', '')
         os.environ['REDIS_URI'] = 'redis://localhost?ttl=10'
-        cls.redis = RedisConnection()
-        cls.conn = cls.redis.connection
+        cls.conn = RedisConnection()
 
     @classmethod
     def tearDownClass(cls):
