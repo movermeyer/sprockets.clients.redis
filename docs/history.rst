@@ -6,6 +6,11 @@ Release History
 Next Release
 ------------
 
+`2.0.0`_ (2015-06-22)
+---------------------
+
+* Backwards incompatible change to the ``RedisConnection`` class.  Inherit from ``StrictRedis`` instead of wrapping it.
+
 `1.2.0`_ (2015-05-18)
 ---------------------
 
