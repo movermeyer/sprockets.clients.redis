@@ -53,7 +53,6 @@ class ShardedRedisConnection(object):
 
     """
 
-
     def __init__(self):
         self.config = self._get_redis_config()
         self._connections = {}
@@ -70,10 +69,12 @@ class ShardedRedisConnection(object):
         if broken.scheme != 'redis':
             raise RuntimeError('Non "redis://" URI provided in REDIS_URI!')
 
-        _, _, ip_addresses = socket.gethostbyname_ex(broken.hostname)
-
-        if not ip_addresses:
-            raise RuntimeError('Unable to find Redis in DNS!')
+        try:
+            _, _, ip_addresses = socket.gethostbyname_ex(broken.hostname)
+        except socket.error:
+            LOGGER.warn('Unable to resolve %s, defaulting to localhost',
+                        broken.hostname)
+            ip_addresses = ['127.0.0.1']
 
         ttl = DEFAULT_TTL
         if broken.query:

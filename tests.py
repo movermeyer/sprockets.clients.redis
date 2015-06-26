@@ -65,8 +65,9 @@ class TestShardedRedisConnectionClass(unittest.TestCase):
     def test_bad_redis_hosts(self):
         old = os.environ['REDIS_URI']
         os.environ['REDIS_URI'] = 'redis://gooblegobble.foo.bar'
-        with self.assertRaises(Exception):
-            ShardedRedisConnection()
+
+        conn = ShardedRedisConnection()
+        self.assertEqual(conn.config.hosts, ['127.0.0.1'])
 
         os.environ['REDIS_URI'] = old
 
