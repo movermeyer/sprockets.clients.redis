@@ -1,5 +1,8 @@
 sprockets.clients.redis
 =======================
+
+DEEPRECATED - DO NOT USE
+
 Base functionality for accessing/modifying data in Redis.  Currently
 there is only support for interacting with Redis servers in a sharded
 manner.
