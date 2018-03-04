@@ -66,8 +66,8 @@ Available at http://sprockets-clients-redis.readthedocs.org/en/latest/history.ht
 .. |Coverage| image:: https://img.shields.io/coveralls/sprockets/sprockets.clients.redis.svg?
    :target: https://coveralls.io/r/sprockets/sprockets.clients.redis
 
-.. |Downloads| image:: https://pypip.in/d/sprockets.clients.redis/badge.svg?
+.. |Downloads| image:: https://img.shields.io/pypi/dm/sprockets.clients.redis.svg
    :target: https://pypi.python.org/pypi/sprockets.clients.redis
 
-.. |License| image:: https://pypip.in/license/sprockets.clients.redis/badge.svg?
+.. |License| image:: https://img.shields.io/pypi/l/sprockets.clients.redis.svg
    :target: http://sprockets-clients-redis.readthedocs.org/en/latest/
